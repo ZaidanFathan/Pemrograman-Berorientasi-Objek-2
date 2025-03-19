@@ -49,7 +49,7 @@ public class TodoOperations {
 
     // Update
     public void updateTodo(int id, String newTitle, String newDescription) {
-        String query = "UPDATE todos SET title = ?, description = ? WHERE id = ?";
+        String query = "UPDATE books SET title = ?, description = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, newTitle);
             stmt.setString(2, newDescription);
@@ -57,29 +57,17 @@ public class TodoOperations {
             stmt.executeUpdate();
             System.out.println("To-Do updated successfully!");
         } catch (SQLException e) {
-            e.printStackTrace();
+           System.out.println(e);
         }
     }
 
     // Delete
     public void deleteTodo(int id) {
-        String query = "DELETE FROM todos WHERE id = ?";
+        String query = "DELETE FROM books WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
             System.out.println("To-Do deleted successfully!");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Mark as Completed
-    public void markAsCompleted(int id) {
-        String query = "UPDATE todos SET is_completed = TRUE WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-            System.out.println("To-Do marked as completed!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -9,12 +9,11 @@ public class Main {
             int choice;
 
             do {
-                System.out.println("\n--- To-Do List Menu ---");
-                System.out.println("1. Add To-Do");
-                System.out.println("2. View All To-Dos");
-                System.out.println("3. Update To-Do");
-                System.out.println("4. Delete To-Do");
-                System.out.println("5. Mark To-Do as Completed");
+                System.out.println("\n--- Library List Menu ---");
+                System.out.println("1. Add Book");
+                System.out.println("2. View All Books");
+                System.out.println("3. Update Book");
+                System.out.println("4. Delete Book");
                 System.out.println("0. Exit");
                 System.out.print("Enter your choice: ");
                 choice = scanner.nextInt();
@@ -26,7 +25,7 @@ public class Main {
                         String title = scanner.nextLine();
                         System.out.print("Enter description: ");
                         String description = scanner.nextLine();
-                        System.out.print("Enter Author Name");
+                        System.out.print("Enter Author Name : ");
                         String author = scanner.nextLine();
                         operations.addTodo(new Todo(title, author, description));
                         break;
@@ -37,7 +36,7 @@ public class Main {
                         break;
 
                     case 3:
-                        System.out.print("Enter To-Do ID to update: ");
+                        System.out.print("Enter Book ID to update: ");
                         int updateId = scanner.nextInt();
                         scanner.nextLine();
                         System.out.print("Enter new title: ");
@@ -48,15 +47,9 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.print("Enter To-Do ID to delete: ");
+                        System.out.print("Enter Book ID to delete: ");
                         int deleteId = scanner.nextInt();
                         operations.deleteTodo(deleteId);
-                        break;
-
-                    case 5:
-                        System.out.print("Enter To-Do ID to mark as completed: ");
-                        int completeId = scanner.nextInt();
-                        operations.markAsCompleted(completeId);
                         break;
 
                     case 0:
